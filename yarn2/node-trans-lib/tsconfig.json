@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "sourceMap": true,
+        "declarationMap": true,
+        "declaration": true,
+        "rootDir": "src",
+        "baseUrl": ".",
+        "outDir": "dist/",
+        "composite": true,
+        "incremental": true,
+        "tsBuildInfoFile": "dist/.tsbuildinfo"
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

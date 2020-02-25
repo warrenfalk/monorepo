@@ -1,0 +1,11 @@
+{
+    "files": [],
+    /* I think the top-level tsconfigs are necessary here in order to open vscode at the root
+       Otherwise, visual studio code has a hard time determining which project (tsconfig) is active
+       However, I've had a hard time confirming this is true 
+       The presence of this does not seem to have solved the "No Project" issue, so it must be something else
+       I'll still leave this here for now, but we need to figure something out*/
+    "references": [
+        {"path": "fuse-app/tsconfig.json"}
+    ]
+}

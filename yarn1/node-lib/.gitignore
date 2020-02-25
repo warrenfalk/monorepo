@@ -1,0 +1,5 @@
+dist/
+# Don't ever ignore this file
+# because if it exists, then "tsBuildInfoFile" in your tsconfig isn't configured
+# and stupidly doesn't put that file in the outFolder
+!tsconfig.tsbuildinfo

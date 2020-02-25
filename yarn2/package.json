@@ -1,0 +1,13 @@
+{
+    "private": true,
+    "workspaces": [
+        "*"
+    ],
+    "installConfig": {
+        "pnp": true
+    },
+    "dependencies": {
+        "@yarnpkg/pnpify": "^2.0.0-rc.18",
+        "typescript": "3.7.5"
+    }
+}

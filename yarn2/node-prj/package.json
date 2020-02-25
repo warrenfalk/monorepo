@@ -1,0 +1,14 @@
+{
+  "name": "node-prj",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "node-lib": "workspace:node-lib"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
+}

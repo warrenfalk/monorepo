@@ -1,0 +1,11 @@
+{
+  "name": "node-lib",
+  "dependencies": {
+    "cross-env": "^7.0.0",
+    "node-trans-lib": "workspace:node-trans-lib",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
+}

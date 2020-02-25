@@ -1,0 +1,80 @@
+#!/bin/bash
+
+cd "$(dirname $0)"
+
+# exit when any command fails
+set -e
+
+fail() {
+    local MESSAGE="$0"
+    echo "$MESSAGE"
+    exit 1
+}
+
+task() {
+    echo -e -n '\033[1;35m'
+    echo "----------------------------------------------------"
+    echo $@
+    echo ""
+    echo -e -n '\033[0m'
+}
+
+task "Clean"
+git clean -d -X -f
+
+task "Check yarn version"
+yarn --version | grep -q -e '^2.'
+
+(
+    task "node-prj tests"
+    cd "node-prj" || fail "can't find node-prj"
+
+    task "clean dist/"
+    rm -rf dist/
+
+    task "yarn install"
+    yarn install
+
+    task "yarn tsc --build"
+    yarn tsc --build
+
+    task "check build output"
+    test -f dist/index.js || fail "dist/index.js not built"
+    test -f dist/module.js || fail "dist/module.js not built"
+
+    task "run"
+    yarn node . | grep "Hello" || fail "yarn node . failed"
+)
+
+task "Clean"
+git clean -d -X -f
+
+(
+    task "fuse-app tests"
+    cd "fuse-app" || fail "can't find fuse-app"
+
+    task "yarn install"
+    yarn install || fail "yarn install failed"
+
+    task "yarn tsc --build"
+    yarn tsc --build || fail "yarn tsc --build failed"
+
+    task "check build output"
+    test -f dist/index.js || fail "dist/index.js not built"
+    test -f dist/internalModule.js || fail "dist/internalModule.js not built"
+
+    task "run"
+    yarn node dist/index.js | grep "Hello" || fail "yarn node . failed"
+
+    task "clean"
+    git clean -dXf ..
+
+    task "yarn install"
+    yarn install || fail "yarn install failed"
+
+    task "fuse build"
+    yarn node build.js || fail "fuse runProd() failed"
+
+    task "fuse dev"
+    yarn node fuse.js || fail "failed to start dev server"
+)
