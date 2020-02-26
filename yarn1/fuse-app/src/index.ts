@@ -2,6 +2,7 @@ import {jsfile} from "node-lib/dist/jsfile"
 import { internalMessage } from "./internalModule";
 import { exportedFunc } from "node-lib"
 import { direct } from "node-lib/dist/direct"
+import { outside } from "../outside/outside"
 import * as uuid from "uuid"
 import * as json from "node-lib/dist/jsonfile.json"
 
@@ -12,6 +13,7 @@ ${direct()}<br>
 ${jsfile()}<br>
 ${json}<br>
 ${exportedFunc()}<br>
+${outside()}<br>
 (refresh to update)
 `;
 
