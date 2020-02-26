@@ -23,11 +23,14 @@
         "incremental": true,
         /* Make sure the tsbuildinfo file is inside the dist folder so that when dist is deleted, the incremental info is also */
         /* This is absolutely necessary if you don't want really confusing "Cannot find module" errors after someone "cleans" a dist folder */
-        "tsBuildInfoFile": "dist/.tsbuildinfo"
+        "tsBuildInfoFile": "dist/.tsbuildinfo",
+        "allowJs": true,
+        "resolveJsonModule": true,
     },
     /* Simply include all files within the "src" folder */
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "src/**/*.json"
     ],
     /* Recapitulate any references to local typescript packages */
     "references": [

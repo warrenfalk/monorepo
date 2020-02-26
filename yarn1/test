@@ -77,11 +77,4 @@ git clean -d -X -f
 
     task "fuse dev"
     yarn node fuse.js || fail "failed to start dev server"
-#    # TODO: test the build somehow
-#    
-#    task "clean fuse-app"
-#    git clean -d -X -f -- .
-#
-#    task "build dev"
-#    yarn node fuse.js
 )
